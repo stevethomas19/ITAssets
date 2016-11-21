@@ -3,7 +3,7 @@ class ItAssetsController < ApplicationController
   before_action :set_it_asset, only: [:show, :edit, :update, :destroy]
 
   def index
-    @it_assets = ItAsset.all
+    @it_assets = params[:query] ? ItAsset.all.order(:asset_name).search(params[:query]) : ItAsset.all.order(:asset_name)
   end
   def new
     @it_asset = ItAsset.new

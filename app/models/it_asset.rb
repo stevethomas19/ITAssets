@@ -5,6 +5,11 @@ class ItAsset < ActiveRecord::Base
   belongs_to :manufacturer
   belongs_to :location
 
+  def self.search(query)
+    query = "%#{query}%"
+    where('(asset_name ILIKE ?)', query)
+  end
+
   private
 
   #this method makes the unique identifier 10 alphanumeric characters
