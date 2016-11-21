@@ -28,7 +28,7 @@
           <td><%= it_asset.maintenance_notes %></td>
           <td><%= it_asset.location.location_name %></td>
           <td><%= it_asset.manufacturer.manufacturer_name %></td>
-          <td><%= it_asset.manufacturer.manufacturer_part_number %></td>
+          <td><%= it_asset.manufacturer_part_number %></td>
           <td><%= link_to 'Edit', edit_it_asset_path(it_asset) %> | <%= link_to 'Delete', it_asset_path(it_asset), method: :delete %></td>
         </tr>
         <% end %>
