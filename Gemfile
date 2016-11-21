@@ -38,7 +38,7 @@ gem 'figaro'
 gem 'puma'
 group :development do
   gem 'capistrano'
-  gem 'net-ssh', '~>2.7.0'
+  gem 'net-ssh', '3.2.0'
   gem 'capistrano3-puma'
   gem 'capistrano-rails', require: false
   gem 'capistrano-bundler', require: false
