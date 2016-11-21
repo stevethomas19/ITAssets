@@ -3,6 +3,7 @@ class ItAssetsController < ApplicationController
   before_action :set_it_asset, only: [:show, :edit, :update, :destroy]
 
   def index
+    #assets are set based on whether or not the search param is there
     @it_assets = params[:query] ? ItAsset.all.order(:asset_name).search(params[:query]) : ItAsset.all.order(:asset_name)
   end
   def new

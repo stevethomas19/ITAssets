@@ -5,6 +5,7 @@ class ItAsset < ActiveRecord::Base
   belongs_to :manufacturer
   belongs_to :location
 
+  #this method is used to search the assets when a parameter is specified
   def self.search(query)
     query = "%#{query}%"
     where('(asset_name ILIKE ?)', query)
