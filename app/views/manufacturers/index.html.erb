@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h2 class="text-center">Manufacturers</h2>
+    <%= link_to 'New Manufacturer', new_manufacturer_path, class: 'btn btn-primary pull-right' %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @manufacturers.each do |manufacturer| %>
+        <tr>
+          <td><%= manufacturer.manufacturer_name %></td>
+          <td><%= link_to 'Edit', edit_manufacturer_path(manufacturer) %> | <%= link_to 'Delete', manufacturer_path(manufacturer), method: :delete %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

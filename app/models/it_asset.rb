@@ -2,6 +2,8 @@ require 'securerandom'
 
 class ItAsset < ActiveRecord::Base
   before_create :randomize_id
+  belongs_to :manufacturer
+  belongs_to :location
 
   private
 

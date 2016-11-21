@@ -10,6 +10,11 @@ class ItAssetsController < ApplicationController
   end
   def create
     @it_asset = ItAsset.create(it_asset_params)
+    if @it_asset.save
+      redirect_to it_assets_path
+    else
+      render :new
+    end
   end
   def show
   end

@@ -1,0 +1,36 @@
+<h2 class="text-center">New Location</h2>
+<div class="col-sm-2">
+  <%= link_to 'Back', locations_path, class: 'btn btn-default' %>
+</div>
+<div class="col-sm-8">
+  <%= form_for @location do |f| %>
+      <div class="form-group">
+        <%= f.label :location_name %>
+        <%= f.text_field :location_name, autofocus: true, class: "form-control"  %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :location_address %>
+        <%= f.text_field :location_address, class: "form-control"  %>
+      </div>
+
+      <div class="form-group col-sm-4">
+        <%= f.label :location_city %>
+        <%= f.text_field :location_city, class: "form-control"  %>
+      </div>
+
+      <div class="form-group col-sm-4">
+        <%= f.label :location_state %>
+        <%= f.select(:location_state, options_for_select(%w(AL AK AZ AR CA CO CT DC DE FL GA HI ID IL IN IA KS KY LA ME MA MI MN MO MS MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VA VT WA WI WV WY)), {}, {class: 'form-control'}) %>
+      </div>
+
+      <div class="form-group col-sm-4">
+        <%= f.label :location_zip %>
+        <%= f.text_field :location_zip, class: "form-control"  %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit 'Submit', class: 'btn-lg btn-info form-control' %>
+      </div>
+ <% end %>
+</div>

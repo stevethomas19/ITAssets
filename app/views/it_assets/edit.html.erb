@@ -1,0 +1,48 @@
+<h2 class="text-center">Edit IT Asset</h2>
+<div class="col-sm-2">
+  <%= link_to 'Back', it_assets_path, class: 'btn btn-default' %>
+</div>
+<div class="col-sm-8">
+  <%= form_for @it_asset do |f| %>
+      <div class="form-group">
+        <%= f.label :asset_name %>
+        <%= f.text_field :asset_name, autofocus: true, class: "form-control"  %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, rows: 5, class: "form-control"  %>
+      </div>
+
+      <div class="form-group col-sm-6">
+        <%= f.label :month_implemented %>
+        <%= f.select(:month_implemented, options_for_select(%w(Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec)), {}, {class: 'form-control'}) %>
+      </div>
+      <div class="form-group col-sm-6">
+        <%= f.label :year_implemented %>
+        <%= f.select(:year_implemented, options_for_select((1960)..(Time.now.year)), {}, {class: 'form-control'}) %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :maintenance_notes %>
+        <%= f.text_area :maintenance_notes, rows: 5, class: "form-control"  %>
+      </div>
+
+      <div class="form-group col-sm-4">
+        <%= f.label 'Location' %>
+        <%= f.select(:location_id, Location.all.collect {|l| [ l.location_name, l.id ] }, {prompt: 'Select Location'}, {class: 'form-control'}) %>
+      </div>
+      <div class="form-group col-sm-4">
+        <%= f.label 'Manufacturer' %>
+        <%= f.select(:manufacturer_id, Manufacturer.all.collect {|m| [ m.manufacturer_name, m.id ] }, {prompt: 'Select Manufacturer'}, {class: 'form-control'}) %>
+      </div>
+      <div class="form-group col-sm-4">
+        <%= f.label :manufacturer_part_number %>
+        <%= f.text_field :manufacturer_part_number, class: "form-control"  %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit 'Submit', class: 'btn-lg btn-info form-control' %>
+      </div>
+ <% end %>
+</div>

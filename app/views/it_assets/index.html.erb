@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h2 class="text-center">IT Assets</h2>
+    <%= link_to 'New IT Asset', new_it_asset_path, class: 'btn btn-primary pull-right' %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Month Implemented</th>
+          <th>Year Implemented</th>
+          <th>Maintenance Notes</th>
+          <th>Current Location</th>
+          <th>Manufacturer</th>
+          <th>Manufacturer Part #</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @it_assets.each do |it_asset| %>
+        <tr>
+          <td><%= it_asset.id %></td>
+          <td><%= it_asset.asset_name %></td>
+          <td><%= it_asset.description %></td>
+          <td><%= it_asset.month_implemented %></td>
+          <td><%= it_asset.year_implemented %></td>
+          <td><%= it_asset.maintenance_notes %></td>
+          <td><%= it_asset.location.location_name %></td>
+          <td><%= it_asset.manufacturer.manufacturer_name %></td>
+          <td><%= it_asset.manufacturer.manufacturer_part_number %></td>
+          <td><%= link_to 'Edit', edit_it_asset_path(it_asset) %> | <%= link_to 'Delete', it_asset_path(it_asset), method: :delete %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

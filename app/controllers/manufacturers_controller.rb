@@ -1,15 +1,20 @@
 class ManufacturersController < ApplicationController
-  #before show,edit,update,destroy get the location from the params
+  #before show,edit,update,destroy get the manufacturer from the params
   before_action :set_manufacturer, only: [:show, :edit, :update, :destroy]
 
   def index
     @manufacturers = Manufacturer.all
   end
   def new
-    @location = Manufacturer.new
+    @manufacturer = Manufacturer.new
   end
   def create
-    @location = Manufacturer.create(manufacturer_params)
+    @manufacturer = Manufacturer.create(manufacturer_params)
+    if @manufacturer.save
+      redirect_to manufacturers_path
+    else
+      render :new
+    end
   end
   def show
   end

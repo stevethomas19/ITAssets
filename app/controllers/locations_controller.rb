@@ -10,6 +10,11 @@ class LocationsController < ApplicationController
   end
   def create
     @location = Location.create(location_params)
+    if @location.save
+      redirect_to locations_path
+    else
+      render :new
+    end
   end
   def show
   end
@@ -36,5 +41,4 @@ class LocationsController < ApplicationController
   def location_params
     params.require(:location).permit(:location_name, :location_address, :location_city, :location_state, :location_zip)
   end
-
 end
